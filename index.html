@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlmazikLauncher 3.7 — Скачать лаунчер Minecraft</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0b1120',
+                        cardbg: '#10192e',
+                        cardborder: '#1e293b',
+                        accent: '#3b82f6',
+                        accenthover: '#2563eb',
+                        diamond: '#60a5fa'
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-gray-100 font-sans antialiased selection:bg-accent selection:text-white">
+
+    <!-- Навигация -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-darkbg/80 backdrop-blur-md border-b border-cardborder">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-accent/10 border border-accent/30 flex items-center justify-center text-diamond text-xl shadow-lg shadow-accent/20">
+                    <i class="fa-solid fa-gem"></i>
+                </div>
+                <span class="text-xl font-bold tracking-wide">Almazik<span class="text-diamond">Launcher</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-gray-400">
+                <a href="#changelog" class="hover:text-diamond transition">Что нового</a>
+                <a href="#features" class="hover:text-diamond transition">Возможности</a>
+                <a href="#reviews" class="hover:text-diamond transition">Отзывы</a>
+                <a href="#download" class="hover:text-diamond transition">Скачать</a>
+            </nav>
+            <div class="flex items-center space-x-3">
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher" target="_blank" class="hidden sm:flex items-center space-x-2 bg-cardbg border border-cardborder text-gray-300 font-semibold px-4 py-2.5 rounded-xl hover:border-accent/40 transition text-sm">
+                    <i class="fa-brands fa-github text-diamond"></i>
+                    <span>GitHub</span>
+                </a>
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher/releases/latest/download/launcher.exe" class="bg-accent text-white font-semibold px-5 py-2.5 rounded-xl hover:bg-accenthover transition shadow-lg shadow-accent/25">
+                    Скачать 3.7
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Главный экран (Hero) -->
+    <section class="pt-36 pb-20 px-6 relative overflow-hidden">
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent/15 blur-[130px] rounded-full pointer-events-none"></div>
+        
+        <div class="max-w-5xl mx-auto text-center relative z-10">
+            <div class="inline-flex items-center space-x-2 bg-cardbg border border-cardborder px-4 py-1.5 rounded-full text-xs text-diamond mb-6 shadow-sm">
+                <span class="w-2 h-2 rounded-full bg-diamond animate-pulse"></span>
+                <span>Вышла новая версия 3.7</span>
+            </div>
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
+                Твой лучший запуск <span class="text-diamond">Minecraft</span>
+            </h1>
+
+            <p class="text-sm font-medium text-gray-400 mb-6 flex items-center justify-center gap-2">
+                <i class="fa-solid fa-code text-diamond"></i>
+                <span>Автор и создатель лаунчера: <strong class="text-white">TakSebeAlmazik</strong></span>
+            </p>
+
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                Мощный, быстрый и минималистичный лаунчер для ПК на Windows. Обновление 3.7 принесло полностью переработанный каталог модов.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher/releases/latest/download/launcher.exe" class="w-full sm:w-auto bg-accent text-white font-bold text-lg px-8 py-4 rounded-xl hover:bg-accenthover transition shadow-xl shadow-accent/30 flex items-center justify-center space-x-3">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Скачать AlmazikLauncher.exe</span>
+                </a>
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher" target="_blank" class="w-full sm:w-auto bg-cardbg border border-cardborder text-gray-300 font-semibold text-lg px-8 py-4 rounded-xl hover:border-accent/40 transition flex items-center justify-center space-x-3">
+                    <i class="fa-brands fa-github text-diamond"></i>
+                    <span>Исходный код (GitHub)</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Что нового в 3.7 -->
+    <section id="changelog" class="py-16 px-6 max-w-5xl mx-auto">
+        <div class="bg-cardbg border border-cardborder rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
+            <!-- Декоративный элемент -->
+            <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 blur-3xl rounded-full"></div>
+            
+            <div class="flex items-center gap-3 mb-8">
+                <div class="w-12 h-12 rounded-xl bg-accent/20 border border-accent/40 flex items-center justify-center text-diamond text-2xl">
+                    <i class="fa-solid fa-rocket"></i>
+                </div>
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold text-white">Что нового в версии 3.7?</h2>
+                    <p class="text-sm text-gray-400">Обновление интерфейса и повышение стабильности</p>
+                </div>
+            </div>
+
+            <div class="space-y-6">
+                <div class="flex items-start space-x-4">
+                    <div class="mt-1 w-6 h-6 rounded-md bg-accent/10 border border-accent/30 text-diamond flex items-center justify-center shrink-0 text-xs">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Полностью новый каталог Modrinth</h4>
+                        <p class="text-gray-400 text-sm mt-1">Теперь моды отображаются в красивом виде с иконками, названием, автором и количеством скачиваний. Появилась кнопка «Установить» прямо на карточке.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="mt-1 w-6 h-6 rounded-md bg-accent/10 border border-accent/30 text-diamond flex items-center justify-center shrink-0 text-xs">
+                        <i class="fa-solid fa-toggle-on"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Умное управление установленными модами</h4>
+                        <p class="text-gray-400 text-sm mt-1">Вместо скучных галочек теперь красивые переключатели (как в телефоне). Выключенный мод просто переименовывается в `.disabled` и не загружается игрой.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="mt-1 w-6 h-6 rounded-md bg-accent/10 border border-accent/30 text-diamond flex items-center justify-center shrink-0 text-xs">
+                        <i class="fa-solid fa-folder-tree"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Новые вкладки в «Библиотеке»</h4>
+                        <p class="text-gray-400 text-sm mt-1">Раздел «Сборка и моды» разделен на три удобные вкладки: «Профили», «Установленные моды» и «Каталог».</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="mt-1 w-6 h-6 rounded-md bg-accent/10 border border-accent/30 text-diamond flex items-center justify-center shrink-0 text-xs">
+                        <i class="fa-solid fa-wand-magic-sparkles"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Улучшенные анимации и прокрутка</h4>
+                        <p class="text-gray-400 text-sm mt-1">Плавное затухание при переходе между страницами, инерционная прокрутка списков и ускоренный запуск лаунчера.</p>
+                    </div>
+                </div>
+
+                <div class="flex items-start space-x-4">
+                    <div class="mt-1 w-6 h-6 rounded-md bg-accent/10 border border-accent/30 text-diamond flex items-center justify-center shrink-0 text-xs">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold text-sm">Исправление багов и безопасности</h4>
+                        <p class="text-gray-400 text-sm mt-1">Добавлены тайм-ауты при скачивании модов (чтобы лаунчер не зависал навсегда), исправлены мелкие ошибки интерфейса.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Особенности лаунчера -->
+    <section id="features" class="py-20 px-6 max-w-7xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Возможности AlmazikLauncher</h2>
+            <p class="text-gray-400 max-w-xl mx-auto">Создан с акцентом на скорость, удобство и современный дизайн.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="bg-cardbg border border-cardborder p-8 rounded-2xl hover:border-diamond/50 transition group">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-diamond text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-sliders"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Гибкие загрузчики</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Установка Vanilla, Fabric, Forge и Quilt в один клик. Переключайся между версиями и сборками без лишних сложностей.
+                </p>
+            </div>
+            <div class="bg-cardbg border border-cardborder p-8 rounded-2xl hover:border-diamond/50 transition group">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-diamond text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-puzzle-piece"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Управление модами</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Встроенный каталог с тысячами модов. Установка в один клик с автоматическим скачиванием зависимостей.
+                </p>
+            </div>
+            <div class="bg-cardbg border border-cardborder p-8 rounded-2xl hover:border-diamond/50 transition group">
+                <div class="w-12 h-12 rounded-xl bg-accent/10 border border-accent/20 flex items-center justify-center text-diamond text-2xl mb-6 group-hover:scale-110 transition">
+                    <i class="fa-solid fa-gauge-high"></i>
+                </div>
+                <h3 class="text-xl font-bold mb-3">Контроль памяти</h3>
+                <p class="text-gray-400 text-sm leading-relaxed">
+                    Интуитивный слайдер для настройки оперативной памяти (ОЗУ), чтобы игра работала стабильно и без лагов.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция отзывов игроков -->
+    <section id="reviews" class="py-20 px-6 max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <span class="text-diamond text-xs font-bold uppercase tracking-wider bg-accent/10 px-3 py-1 rounded-full border border-accent/25">Обратная связь</span>
+            <h2 class="text-3xl md:text-4xl font-bold mt-4 mb-3">Отзывы игроков</h2>
+            <p class="text-gray-400 text-sm">Поделись своими впечатлениями о работе AlmazikLauncher!</p>
+        </div>
+
+        <!-- Форма отправки отзыва -->
+        <div class="bg-cardbg border border-cardborder rounded-3xl p-8 mb-12 shadow-xl">
+            <h3 class="text-lg font-bold mb-6 text-white flex items-center gap-2">
+                <i class="fa-solid fa-pen-nib text-diamond"></i> Оставить свой отзыв <span class="text-xs text-gray-500 font-normal ml-auto">(макс. 150 слов)</span>
+            </h3>
+            <form id="reviewForm" class="space-y-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-2">Ваш никнейм</label>
+                        <input type="text" id="authorInput" placeholder="Например: DiamondPlayer" required maxlength="30"
+                            class="w-full bg-darkbg border border-cardborder rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-accent">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-400 mb-2">Ваша оценка (алмазы)</label>
+                        <div class="flex items-center space-x-2 bg-darkbg border border-cardborder rounded-xl px-4 py-3 h-[46px]">
+                            <div id="starContainer" class="flex space-x-2 cursor-pointer text-xl text-diamond">
+                                <i class="fa-solid fa-gem" data-value="1"></i>
+                                <i class="fa-solid fa-gem" data-value="2"></i>
+                                <i class="fa-solid fa-gem" data-value="3"></i>
+                                <i class="fa-solid fa-gem" data-value="4"></i>
+                                <i class="fa-solid fa-gem" data-value="5"></i>
+                            </div>
+                            <span id="ratingText" class="text-xs text-gray-400 ml-2">(5/5)</span>
+                            <input type="hidden" id="ratingInput" value="5">
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-gray-400 mb-2">Текст отзыва</label>
+                    <textarea id="textInput" rows="3" placeholder="Расскажите, как работает лаунчер..." required
+                        class="w-full bg-darkbg border border-cardborder rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 focus:outline-none focus:border-accent resize-none"></textarea>
+                </div>
+                <button type="submit" id="submitBtn" class="bg-accent hover:bg-accenthover text-white font-bold px-8 py-3.5 rounded-xl text-sm transition shadow-lg shadow-accent/25 flex items-center gap-2">
+                    <i class="fa-solid fa-paper-plane"></i> <span id="btnText">Отправить отзыв</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- Список отзывов -->
+        <div id="reviewsList" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Закрепленный отзыв разработчика -->
+            <div class="bg-cardbg border border-diamond/40 p-6 rounded-2xl flex flex-col justify-between shadow-lg">
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-crown text-diamond"></i>
+                            <span class="font-bold text-diamond text-sm">TakSebeAlmazik</span>
+                            <span class="bg-accent/20 border border-accent/40 text-diamond text-[10px] px-2 py-0.5 rounded-full font-bold">СОЗДАТЕЛЬ</span>
+                        </div>
+                        <span class="text-diamond text-xs"><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i><i class="fa-solid fa-gem"></i></span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">
+                        «Добро пожаловать в AlmazikLauncher 3.7! В этом обновлении мы полностью переделали каталог модов, добавили удобные переключатели и сделали интерфейс еще более плавным. Приятной игры!»
+                    </p>
+                </div>
+                <div class="text-xs text-gray-500 flex items-center gap-1">
+                    <i class="fa-solid fa-shield-halved text-diamond"></i> Официальный отзыв разработчика
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Секция скачивания -->
+    <section id="download" class="py-20 px-6 text-center">
+        <div class="max-w-3xl mx-auto bg-cardbg border border-cardborder p-10 md:p-16 rounded-3xl">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4">Готов оценить 3.7?</h2>
+            <p class="text-gray-400 mb-8 max-w-lg mx-auto">Скачай AlmazikLauncher в один клик и погрузись в любимый кубический мир.</p>
+            
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher/releases/latest/download/launcher.exe" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-accent text-white font-bold text-lg px-8 py-4 rounded-2xl hover:bg-accenthover transition shadow-xl shadow-accent/25">
+                    <i class="fa-solid fa-download"></i>
+                    <span>Скачать AlmazikLauncher.exe</span>
+                </a>
+                <a href="https://github.com/TakSebeAlmazik/AlmazikLauncher" target="_blank" class="w-full sm:w-auto inline-flex items-center justify-center space-x-3 bg-cardbg border border-cardborder text-gray-300 font-semibold text-lg px-8 py-4 rounded-2xl hover:border-accent/40 transition">
+                    <i class="fa-brands fa-github text-diamond"></i>
+                    <span>Открыть GitHub</span>
+                </a>
+            </div>
+            <span class="block text-xs text-gray-500 mt-4">Прямое скачивание с GitHub • Windows 10 / 11 (x64)</span>
+        </div>
+    </section>
+
+    <!-- Футер -->
+    <footer class="border-t border-cardborder py-8 px-6 text-center text-gray-500 text-sm">
+        <p class="mb-2">Лаунчер создал <span class="text-diamond font-semibold">TakSebeAlmazik</span></p>
+        <p>&copy; 2026 AlmazikLauncher. Все права защищены.</p>
+    </footer>
+
+    <!-- Скрипты и логика защиты + таймер -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
+        import { getFirestore, collection, addDoc, onSnapshot, query, orderBy, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAD7UL7ixqL639_70mGspj4Il_8ytHCJzo",
+            authDomain: "almaziklauncher-dfb69.firebaseapp.com",
+            projectId: "almaziklauncher-dfb69",
+            storageBucket: "almaziklauncher-dfb69.firebasestorage.app",
+            messagingSenderId: "53201240477",
+            appId: "1:53201240477:web:6979df083ef8307db86f74",
+            measurementId: "G-388RJ0EJBQ"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const reviewsRef = collection(db, "reviews");
+
+        const form = document.getElementById('reviewForm');
+        const list = document.getElementById('reviewsList');
+        const submitBtn = document.getElementById('submitBtn');
+        const btnText = document.getElementById('btnText');
+
+        // Список стоп-слов и мата для фильтра
+        const badWords = ["хуй", "пизд", "еб", "сук", "калл", "нахуй", "блять", "блть", "сука", "еба", "мраз", "крашер"];
+
+        const stars = document.querySelectorAll('#starContainer i');
+        const ratingInput = document.getElementById('ratingInput');
+        const ratingText = document.getElementById('ratingText');
+        let currentRating = 5;
+
+        stars.forEach(star => {
+            star.addEventListener('click', (e) => {
+                currentRating = parseInt(e.target.getAttribute('data-value'));
+                ratingInput.value = currentRating;
+                ratingText.textContent = `(${currentRating}/5)`;
+                
+                stars.forEach((s, index) => {
+                    if (index < currentRating) {
+                        s.className = "fa-solid fa-gem text-diamond";
+                    } else {
+                        s.className = "fa-solid fa-gem text-gray-600 opacity-40";
+                    }
+                });
+            });
+        });
+
+        // Функция живого таймера на кнопке
+        function checkCooldownTimer() {
+            const lastReviewTime = localStorage.getItem('lastReviewTime');
+            if (!lastReviewTime) return;
+
+            const now = Date.now();
+            const diff = now - lastReviewTime;
+            
+            if (diff < 30000) {
+                const timeLeft = Math.ceil((30000 - diff) / 1000);
+                submitBtn.disabled = true;
+                submitBtn.classList.remove('bg-accent', 'hover:bg-accenthover', 'shadow-accent/25');
+                submitBtn.classList.add('bg-gray-700', 'cursor-not-allowed', 'opacity-70');
+                btnText.textContent = `Подождите (${timeLeft}с)`;
+                
+                setTimeout(checkCooldownTimer, 1000);
+            } else {
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('bg-gray-700', 'cursor-not-allowed', 'opacity-70');
+                submitBtn.classList.add('bg-accent', 'hover:bg-accenthover', 'shadow-accent/25');
+                btnText.textContent = "Отправить отзыв";
+            }
+        }
+
+        // Запускаем проверку таймера при загрузке страницы
+        checkCooldownTimer();
+
+        const q = query(reviewsRef, orderBy("timestamp", "desc"));
+        onSnapshot(q, (snapshot) => {
+            const userCards = list.querySelectorAll('.user-review-card');
+            userCards.forEach(c => c.remove());
+
+            snapshot.forEach((doc) => {
+                const r = doc.data();
+                renderReview(r);
+            });
+        });
+
+        function renderReview(r) {
+            const card = document.createElement('div');
+            card.className = "user-review-card bg-cardbg border border-cardborder p-6 rounded-2xl flex flex-col justify-between shadow-md";
+            const dateStr = r.timestamp ? new Date(r.timestamp.toDate()).toLocaleDateString('ru-RU') : 'Только что';
+            const diamondsHtml = '<i class="fa-solid fa-gem text-diamond"></i>'.repeat(r.rating || 5);
+
+            card.innerHTML = `
+                <div>
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa-solid fa-user-circle text-diamond text-base"></i>
+                            <span class="font-bold text-white text-sm">${escapeHtml(r.author)}</span>
+                        </div>
+                        <span class="text-diamond text-xs space-x-0.5">${diamondsHtml}</span>
+                    </div>
+                    <p class="text-gray-300 text-sm leading-relaxed mb-4">${escapeHtml(r.text)}</p>
+                </div>
+                <div class="text-xs text-gray-500">${dateStr}</div>
+            `;
+            list.appendChild(card);
+        }
+
+        // Обработка отправки формы с проверками
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const author = document.getElementById('authorInput').value.trim();
+            const rating = parseInt(ratingInput.value);
+            const text = document.getElementById('textInput').value.trim();
+
+            if (!author || !text) return;
+
+            // 1. Проверка кулдауна
+            const lastReviewTime = localStorage.getItem('lastReviewTime');
+            const now = Date.now();
+            if (lastReviewTime && now - lastReviewTime < 30000) {
+                return;
+            }
+
+            // 2. Ограничение в 150 слов
+            const words = text.split(/\s+/).filter(Boolean);
+            if (words.length > 150) {
+                alert(`Отзыв слишком длинный! Максимум 150 слов (у вас ${words.length}).`);
+                return;
+            }
+
+            // 3. Проверка на плохие слова
+            const combinedText = (author + " " + text).toLowerCase();
+            const containsBadWord = badWords.some(word => combinedText.includes(word));
+            if (containsBadWord) {
+                alert("Пожалуйста, соблюдайте правила общения и избегайте ненормативной лексики.");
+                return;
+            }
+
+            try {
+                await addDoc(reviewsRef, {
+                    author,
+                    rating,
+                    text,
+                    timestamp: serverTimestamp()
+                });
+                
+                // Запоминаем время и включаем таймер
+                localStorage.setItem('lastReviewTime', Date.now());
+                checkCooldownTimer();
+
+                form.reset();
+                currentRating = 5;
+                ratingInput.value = 5;
+                ratingText.textContent = "(5/5)";
+                stars.forEach(s => s.className = "fa-solid fa-gem text-diamond");
+                
+                alert("Спасибо! Твой отзыв успешно опубликован.");
+            } catch (err) {
+                alert("Ошибка при отправке отзыва: " + err.message);
+            }
+        });
+
+        function escapeHtml(str) {
+            return str ? str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;") : '';
+        }
+    </script>
+</body>
+</html>
