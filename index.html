@@ -5,14 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AlmazikLauncher 3.7 — Скачать лаунчер Minecraft</title>
     
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      // Проверка: если Tailwind не загрузился, грузим запасной вариант
-      if (typeof tailwind === 'undefined') {
-        document.write('<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"><\/script>');
-      }
-    </script>
+    <!-- Tailwind CSS (Локальный файл, скачанный с GitHub) -->
+    <script src="tailwind.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -30,8 +24,8 @@
         }
     </script>
     
-    <!-- FontAwesome (Иконки через надежный jsDelivr) -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    <!-- FontAwesome Иконки (Локальный файл) -->
+    <link rel="stylesheet" href="all.min.css">
 </head>
 <body class="bg-darkbg text-gray-100 font-sans antialiased selection:bg-accent selection:text-white">
 
@@ -99,7 +93,6 @@
     <!-- Что нового в 3.7 -->
     <section id="changelog" class="py-16 px-6 max-w-5xl mx-auto">
         <div class="bg-cardbg border border-cardborder rounded-3xl p-8 md:p-12 shadow-2xl relative overflow-hidden">
-            <!-- Декоративный элемент -->
             <div class="absolute -top-10 -right-10 w-40 h-40 bg-accent/10 blur-3xl rounded-full"></div>
             
             <div class="flex items-center gap-3 mb-8">
