@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AlmazikLogin</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+        :root {
+            --bg: #0a0c13;
+            --panel: #10131c;
+            --field: #181c28;
+            --border: #252a3a;
+            --text: #eef1fb;
+            --accent: #46d1ff; /* Цвет "Алмаз" из твоего лаунчера */
+            --accent-hover: #2bb4e8;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: radial-gradient(circle at 50% 0%, rgba(70, 209, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .auth-container {
+            background-color: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            width: 380px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .auth-container::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 30px;
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: 2px;
+        }
+
+        h1 span { color: var(--accent); }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 13px;
+            color: #8a92aa;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--field);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+            transition: 0.3s;
+        }
+
+        .input-group input:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 10px rgba(70, 209, 255, 0.2);
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--accent);
+            color: #06111b;
+            border: none;
+            border-radius: 12px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-hover);
+            box-shadow: 0 0 15px rgba(70, 209, 255, 0.4);
+        }
+
+        .toggle-text {
+            text-align: center;
+            font-size: 13px;
+            color: #8a92aa;
+            margin-top: 10px;
+        }
+
+        .toggle-text a {
+            color: var(--accent);
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        /* Экран профиля (когда вошел) */
+        #profile-screen {
+            display: none;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background-color: var(--field);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            border: 2px solid var(--accent);
+        }
+
+        .stat-box {
+            background-color: var(--field);
+            padding: 15px;
+            border-radius: 12px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .stat-box span:last-child { color: var(--accent); font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <!-- ЭКРАН ВХОДА / РЕГИСТРАЦИИ -->
+    <div class="auth-container" id="auth-screen">
+        <h1>ALMAZIK<span>LOGIN</span></h1>
+        
+        <!-- Поля для регистрации -->
+        <div class="input-group" id="group-nick" style="display: none;">
+            <label>Игровой ник</label>
+            <input type="text" id="nick" placeholder="Steve">
+        </div>
+
+        <div class="input-group">
+            <label>E-mail</label>
+            <input type="email" id="email" placeholder="example@mail.com">
+        </div>
+        <div class="input-group">
+            <label>Пароль</label>
+            <input type="password" id="password" placeholder="••••••••">
+        </div>
+
+        <button class="btn" id="btn-submit" onclick="handleAuth()">Войти</button>
+        
+        <div class="toggle-text">
+            <span id="toggle-msg">Нет аккаунта?</span> 
+            <a onclick="toggleMode()" id="toggle-btn">Создать</a>
+        </div>
+    </div>
+
+    <!-- ЭКРАН ПРОФИЛЯ -->
+    <div class="auth-container" id="profile-screen">
+        <h1>ТВОЙ <span>ПРОФИЛЬ</span></h1>
+        <div class="avatar">🧑‍💻</div>
+        <h2 id="user-nick" style="margin-bottom: 25px;">Nickname</h2>
+        
+        <div class="stat-box">
+            <span>Статус:</span>
+            <span style="color: #43e08e;">В сети</span>
+        </div>
+        <div class="stat-box">
+            <span>Друзья:</span>
+            <span>0</span>
+        </div>
+        
+        <button class="btn" style="background-color: #e84d66; color: white; margin-top: 20px;" onclick="logout()">Выйти</button>
+    </div>
+
+    <!-- ПОДКЛЮЧЕНИЕ FIREBASE SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-auth.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/13.1.0/firebase-firestore.js";
+
+        // Твой конфиг из Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyBHmGDVSn-9V4exq5vSlR2uda-pA7yXlo8",
+            authDomain: "almaziklogin.firebaseapp.com",
+            projectId: "almaziklogin",
+            storageBucket: "almaziklogin.firebasestorage.app",
+            messagingSenderId: "557325175218",
+            appId: "1:557325175218:web:548b24a405518d033f3cab",
+            measurementId: "G-7L90TWX1LN"
+        };
+
+        // Инициализация Firebase
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        // Переменные состояния
+        let isLoginMode = true;
+
+        // Переключение между Входом и Регистрацией
+        window.toggleMode = function() {
+            isLoginMode = !isLoginMode;
+            document.getElementById('group-nick').style.display = isLoginMode ? 'none' : 'block';
+            document.getElementById('btn-submit').innerText = isLoginMode ? 'Войти' : 'Зарегистрироваться';
+            document.getElementById('toggle-msg').innerText = isLoginMode ? 'Нет аккаунта?' : 'Уже есть аккаунт?';
+            document.getElementById('toggle-btn').innerText = isLoginMode ? 'Создать' : 'Войти';
+        };
+
+        // Обработка нажатия на кнопку (Вход или Регистрация)
+        window.handleAuth = async function() {
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const nick = document.getElementById('nick').value.trim();
+            const btn = document.getElementById('btn-submit');
+
+            if (!email || !password || (!isLoginMode && !nick)) {
+                alert("Заполните все поля!");
+                return;
+            }
+
+            btn.innerText = "Загрузка...";
+            btn.disabled = true;
+
+            try {
+                if (isLoginMode) {
+                    // Вход
+                    await signInWithEmailAndPassword(auth, email, password);
+                } else {
+                    // Регистрация
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+                    
+                    // Сохраняем профиль (ник) в базу данных Firestore
+                    await setDoc(doc(db, "users", user.uid), {
+                        nickname: nick,
+                        email: email,
+                        registeredAt: new Date().toISOString(),
+                        friends: [] // Пустой список друзей на будущее
+                    });
+                }
+            } catch (error) {
+                // Перевод популярных ошибок на русский
+                let errorMsg = error.message;
+                if (error.code === 'auth/email-already-in-use') errorMsg = "Этот E-mail уже зарегистрирован.";
+                if (error.code === 'auth/wrong-password') errorMsg = "Неверный пароль.";
+                if (error.code === 'auth/user-not-found') errorMsg = "Пользователь с таким E-mail не найден.";
+                if (error.code === 'auth/invalid-email') errorMsg = "Неверный формат E-mail.";
+                if (error.code === 'auth/weak-password') errorMsg = "Пароль должен быть не менее 6 символов.";
+                
+                alert("Ошибка: " + errorMsg);
+                btn.innerText = isLoginMode ? 'Войти' : 'Зарегистрироваться';
+                btn.disabled = false;
+            }
+        };
+
+        // Выход из аккаунта
+        window.logout = async function() {
+            await signOut(auth);
+        };
+
+        // Отслеживание состояния авторизации (зашел / вышел)
+        onAuthStateChanged(auth, async (user) => {
+            if (user) {
+                // Пользователь авторизован
+                document.getElementById('auth-screen').style.display = 'none';
+                document.getElementById('profile-screen').style.display = 'block';
+                
+                // Получаем ник из базы данных
+                const docRef = doc(db, "users", user.uid);
+                const docSnap = await getDoc(docRef);
+                if (docSnap.exists()) {
+                    document.getElementById('user-nick').innerText = docSnap.data().nickname;
+                } else {
+                    document.getElementById('user-nick').innerText = "Игрок";
+                }
+            } else {
+                // Пользователь вышел
+                document.getElementById('auth-screen').style.display = 'block';
+                document.getElementById('profile-screen').style.display = 'none';
+                document.getElementById('btn-submit').innerText = isLoginMode ? 'Войти' : 'Зарегистрироваться';
+                document.getElementById('btn-submit').disabled = false;
+                
+                // Очищаем поля
+                document.getElementById('email').value = '';
+                document.getElementById('password').value = '';
+            }
+        });
+    </script>
+</body>
+</html>
